@@ -139,7 +139,7 @@ def listen_linux(frame_rate=44100, interval=0.1):
 
         chunk = np.fromstring(data, dtype=np.int16)
         dom = dominant(frame_rate, chunk)
-        print(dom)
+        #print(dom)
 
         if in_packet and match(dom, HANDSHAKE_END_HZ):
             byte_stream = extract_packet(packet)
@@ -153,7 +153,7 @@ def listen_linux(frame_rate=44100, interval=0.1):
 
             packet = []
             in_packet = False
-            exit(0)
+            #exit(0)
         elif in_packet:
             packet.append(dom)
         elif match(dom, HANDSHAKE_START_HZ):
